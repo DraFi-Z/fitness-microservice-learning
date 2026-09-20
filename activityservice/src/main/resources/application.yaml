@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: activityservice
+  mongodb:
+    uri: mongodb://fitness_activityservice_user:fitness_activityservice_pass@localhost:27017/fitness_activityservice_db?authSource=admin
+    auto-index-creation: true
+
+server:
+  port: 8082
