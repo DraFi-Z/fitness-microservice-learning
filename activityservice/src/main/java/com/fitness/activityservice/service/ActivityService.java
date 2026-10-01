@@ -4,7 +4,6 @@ import com.fitness.activityservice.DTO.ActivityRequest;
 import com.fitness.activityservice.DTO.ActivityResponse;
 import com.fitness.activityservice.model.Activity;
 import com.fitness.activityservice.repository.ActiveRepository;
-import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
@@ -45,13 +44,13 @@ public class ActivityService {
         Activity savedActivity = activeRepository.save(activity);
 
         //send the saved Activity to Rabbit MQ
-        //that is publish to rabbit mq for ai service
+        //that is published to rabbit mq for Artificial Intelligence service
 
         try{
             rabbitTemplate.convertAndSend(exchange,routingKey,savedActivity);
             log.info("activity published to RabbitMQ");
         }catch(Exception e){
-            log.error("Failed to pubish activity to RabbitMQ : {}",e);
+            log.error("Failed to publish activity to RabbitMQ : {}",e);
         }
 
         return mapToResponse(savedActivity);

@@ -10,6 +10,13 @@ spring:
     port: 5672
     username: fitness_rabbit_user
     password: fitness_rabbit_pass
+  ai:
+    google:
+      genai:
+        api-key: ${GEMINI_API_KEY}
+        chat:
+          model: gemini-3.5-flash-lite
+          temperature: 0.5
 
 server:
   port: 8083

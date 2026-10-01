@@ -11,8 +11,9 @@ public class Activity {
     private String userId;
     private Integer duration;
     private Integer caloriesBurned;
+    private String type;
     private LocalDateTime startTime;
-    private Map<String, Object> additonalMetrics;
+    private Map<String, Object> additionalMetrics;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
