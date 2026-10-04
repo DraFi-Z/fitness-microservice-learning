@@ -1,35 +1,5 @@
 spring:
   application:
     name: ai-service
-  mongodb:
-    uri: mongodb://fitness_activityservice_user:fitness_activityservice_pass@localhost:27017/fitnessrecommendation?authSource=admin
-    auto-index-creation: true
-    database: fitnessrecommendation
-  rabbitmq:
-    host: localhost
-    port: 5672
-    username: fitness_rabbit_user
-    password: fitness_rabbit_pass
-  ai:
-    google:
-      genai:
-        api-key: ${GEMINI_API_KEY}
-        chat:
-          model: gemini-3.5-flash-lite
-          temperature: 0.5
-
-server:
-  port: 8083
-
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-
-rabbitmq:
-  exchange:
-    name: fitness.exchange
-  queue:
-    name: activity.queue
-  routing:            #Routing key, used to send messages
-    key: activity.tracking
+  config:
+    import: optional:configserver:http://localhost:8888
