@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 public class UserResponseDTO {
 
     private String id;
+    private String keyCloakId;
     private String email;
     private String firstName;
     private String lastName;
