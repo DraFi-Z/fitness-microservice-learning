@@ -35,6 +35,7 @@ public class ActivityService {
             }
         }catch(Exception e){
             log.info("Error in userValidationService {}",e.getMessage());
+            throw new RuntimeException("Invalid User: "+request.getUserId());
         }
 
         Activity activity = Activity.builder()
